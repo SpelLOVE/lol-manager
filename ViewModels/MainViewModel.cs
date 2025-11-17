@@ -1431,7 +1431,7 @@ public partial class MainViewModel : ObservableObject
 	{
 		try
 		{
-			var url = "https://github.com/RaspizDIYs/lol-manager/issues/new";
+			var url = "https://github.com/SpelLOVE/lol-manager/issues/new";
 			System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
 			{
 				FileName = url,

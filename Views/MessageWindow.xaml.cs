@@ -158,7 +158,7 @@ public partial class MessageWindow : FluentWindow
             var body = CreateIssueBody();
             
             // Используем реальный репозиторий GitHub 
-            var url = $"https://github.com/RaspizDIYs/LolManager/issues/new?title={Uri.EscapeDataString(title)}&body={body}";
+            var url = $"https://github.com/SpelLOVE/lol-manager/issues/new?title={Uri.EscapeDataString(title)}&body={body}";
             
             // Альтернативный подход для открытия URL
             try
@@ -197,7 +197,7 @@ public partial class MessageWindow : FluentWindow
             {
                 var title = "Ошибка в приложении";
                 var body = CreateIssueBodyPlain(); // Используем версию без URL encoding для копирования
-                var url = $"https://github.com/RaspizDIYs/LolManager/issues/new?title={Uri.EscapeDataString(title)}&body={Uri.EscapeDataString(body)}";
+                var url = $"https://github.com/SpelLOVE/lol-manager/issues/new?title={Uri.EscapeDataString(title)}&body={Uri.EscapeDataString(body)}";
                 Clipboard.SetText(url);
                 
                 ReportButton.Content = "URL скопирован";

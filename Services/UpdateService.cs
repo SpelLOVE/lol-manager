@@ -65,7 +65,7 @@ public class UpdateService : IUpdateService
 
     private IUpdateSource GetUpdateSource(string channel)
     {
-        const string repoOwner = "RaspizDIYs"; 
+        const string repoOwner = "SpelLOVE"; 
         const string repoName = "lol-manager";
         
         var repoUrl = $"https://github.com/{repoOwner}/{repoName}";
@@ -121,7 +121,7 @@ public class UpdateService : IUpdateService
 
             var settings = _settingsService.LoadUpdateSettings();
             _logger.Info($"Current version: {CurrentVersion}, Channel: {settings.UpdateChannel}");
-            _logger.Info($"Update source: https://github.com/RaspizDIYs/lol-manager (channel: {settings.UpdateChannel})");
+            _logger.Info($"Update source: https://github.com/SpelLOVE/lol-manager (channel: {settings.UpdateChannel})");
             
             // Интервал проверки отключен - проверяем при каждом запуске приложения
             // Оставляем логику только для принудительной проверки vs автоматической
@@ -296,7 +296,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            const string repoOwner = "RaspizDIYs";
+            const string repoOwner = "SpelLOVE";
             const string repoName = "lol-manager";
             using var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("User-Agent", "LolManager-UpdateCheck");
@@ -418,7 +418,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            var latestSetupUrl = "https://github.com/RaspizDIYs/lol-manager/releases/latest/download/LolManager-stable-Setup.exe";
+            var latestSetupUrl = "https://github.com/SpelLOVE/lol-manager/releases/latest/download/LolManager-stable-Setup.exe";
             var tempPath = Path.Combine(Path.GetTempPath(), "LolManager-stable-Setup.exe");
             _logger.Info($"Downloading installer: {latestSetupUrl}");
             var data = await HttpGetBytesWithRetry(latestSetupUrl, TimeSpan.FromMinutes(2));
@@ -443,7 +443,7 @@ public class UpdateService : IUpdateService
         try
         {
             var normalizedTag = tag.StartsWith("v") ? tag : $"v{tag}";
-            var latestSetupUrl = $"https://github.com/RaspizDIYs/lol-manager/releases/download/{normalizedTag}/LolManager-beta-Setup.exe";
+            var latestSetupUrl = $"https://github.com/SpelLOVE/lol-manager/releases/download/{normalizedTag}/LolManager-beta-Setup.exe";
             var tempPath = Path.Combine(Path.GetTempPath(), "LolManager-beta-Setup.exe");
             _logger.Info($"Downloading beta installer: {latestSetupUrl}");
             var data = await HttpGetBytesWithRetry(latestSetupUrl, TimeSpan.FromMinutes(2));
@@ -582,7 +582,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            const string repoOwner = "RaspizDIYs";
+            const string repoOwner = "SpelLOVE";
             const string repoName = "lol-manager";
             
             using var httpClient = new HttpClient();
@@ -879,7 +879,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            var url = "https://github.com/RaspizDIYs/lol-manager/releases.atom";
+            var url = "https://github.com/SpelLOVE/lol-manager/releases.atom";
             var xml = await HttpGetStringWithRetry(url, TimeSpan.FromSeconds(15));
             var titles = System.Text.RegularExpressions.Regex.Matches(xml, @"<title>(.*?)</title>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
                 .Select(m => System.Net.WebUtility.HtmlDecode(m.Groups[1].Value))
@@ -899,7 +899,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            var url = "https://github.com/RaspizDIYs/lol-manager/releases.atom";
+            var url = "https://github.com/SpelLOVE/lol-manager/releases.atom";
             var xml = await HttpGetStringWithRetry(url, TimeSpan.FromSeconds(15));
             // простой парсинг: ищем <title>vX.Y.Z-beta.N</title>
             var titles = System.Text.RegularExpressions.Regex.Matches(xml, @"<title>(.*?)</title>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
@@ -1193,8 +1193,8 @@ public class UpdateService : IUpdateService
         {
             var tag = LatestAvailableVersion?.Trim();
             var url = !string.IsNullOrEmpty(tag)
-                ? $"https://github.com/RaspizDIYs/lol-manager/releases/tag/{tag}"
-                : "https://github.com/RaspizDIYs/lol-manager/releases";
+                ? $"https://github.com/SpelLOVE/lol-manager/releases/tag/{tag}"
+                : "https://github.com/SpelLOVE/lol-manager/releases";
             _logger.Info($"Opening releases page: {url}");
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
             {
@@ -1212,7 +1212,7 @@ public class UpdateService : IUpdateService
     {
         try
         {
-            var url = "https://github.com/RaspizDIYs/lol-manager/releases.atom";
+            var url = "https://github.com/SpelLOVE/lol-manager/releases.atom";
             var xml = await HttpGetStringWithRetry(url, TimeSpan.FromSeconds(15));
 
             // Простой парсинг: ищем <title>vX.Y.Z-beta.N</title>
